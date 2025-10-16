@@ -23,8 +23,12 @@ void ParkingLot::unparkVehicle(string no) {
             time_t exitTime = time(0);
             double fee = it->getVehicle()->calculateFee(exitTime);
             cout << "Vehicle " << no << " removed. Fee: Rs." << fee << endl;
-            delete it->getVehicle();
+            
+            // Store pointer before erasing
+            Vehicle* vehicleToDelete = it->getVehicle();
             tickets.erase(it);
+            delete vehicleToDelete;
+            
             return;
         }
     }

@@ -5,13 +5,14 @@ using namespace std;
 
 int ParkingLot::totalVehicles = 0;
 
-ParkingLot::ParkingLot(int cap) : capacity(cap) {}
+ParkingLot::ParkingLot(int cap) : capacity(cap) ,currentVehicles(0){}
 
 bool ParkingLot::parkVehicle(Vehicle* v) {
     if ((int)tickets.size() >= capacity) {
         throw runtime_error("Parking Full!");
     }
     tickets.push_back(Ticket(v, tickets.size()+1));
+    currentVehicles++;
     totalVehicles++;
     cout << "Vehicle Parked. " << tickets.back() << endl;
     return true;
@@ -23,7 +24,7 @@ void ParkingLot::unparkVehicle(string no) {
             time_t exitTime = time(0);
             double fee = it->getVehicle()->calculateFee(exitTime);
             cout << "Vehicle " << no << " removed. Fee: Rs." << fee << endl;
-            
+            currentVehicles--;
             // Store pointer before erasing
             Vehicle* vehicleToDelete = it->getVehicle();
             tickets.erase(it);
@@ -43,3 +44,4 @@ void ParkingLot::displayStatus() {
 }
 
 int ParkingLot::getTotalVehicles() { return totalVehicles; }
+int ParkingLot::getCurrentVehicles() { return currentVehicles; }

@@ -8,12 +8,14 @@ using namespace std;
 class ParkingLot {
     vector<Ticket> tickets;
     int capacity;
+    int currentVehicles;
     static int totalVehicles;
 public:
     ParkingLot(int cap);
     bool parkVehicle(Vehicle* v);
     void unparkVehicle(string no);
     void displayStatus();
+    int getCurrentVehicles();
     static int getTotalVehicles();
 };
 

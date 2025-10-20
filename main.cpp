@@ -68,11 +68,12 @@ void adminAccess(ParkingLot& lot) {
             string no, type;
             cout << "Enter Vehicle No: "; cin >> no;
             cout << "Enter Type (Car/Bike/Truck): "; cin >> type;
+            transform(type.begin(), type.end(), type.begin(), ::tolower);
 
             Vehicle* v = nullptr;
-            if (type == "Car") v = new Car(no);
-            else if (type == "Bike") v = new Bike(no);
-            else if (type == "Truck") v = new Truck(no);
+            if (type == "car") v = new Car(no);
+            else if (type == "bike") v = new Bike(no);
+            else if (type == "truck") v = new Truck(no);
             else { cout << "Invalid vehicle type!\n"; continue; }
 
             try {
@@ -120,11 +121,12 @@ void userAccess(ParkingLot& lot) {
             string no, type;
             cout << "Enter Vehicle No: "; cin >> no;
             cout << "Enter Type (Car/Bike/Truck): "; cin >> type;
+            transform(type.begin(), type.end(), type.begin(), ::tolower);
 
             Vehicle* v = nullptr;
-            if (type == "Car") v = new Car(no);
-            else if (type == "Bike") v = new Bike(no);
-            else if (type == "Truck") v = new Truck(no);
+            if (type == "car") v = new Car(no);
+            else if (type == "bike") v = new Bike(no);
+            else if (type == "truck") v = new Truck(no);
             else { cout << "Invalid vehicle type! Please try again.\n"; continue; }
 
             try {

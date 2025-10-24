@@ -66,7 +66,8 @@ void adminAccess(ParkingLot& lot) {
         if (choice == 1) {
             // Park Vehicle
             string no, type;
-            cout << "Enter Vehicle No: "; cin >> no;
+            cout << "Enter Vehicle No: ";
+            getline(cin >> ws, no);
             cout << "Enter Type (Car/Bike/Truck): "; cin >> type;
             transform(type.begin(), type.end(), type.begin(), ::tolower);
 
@@ -85,7 +86,8 @@ void adminAccess(ParkingLot& lot) {
             }
         } else if (choice == 2) {
             // Unpark Vehicle
-            string no; cout << "Enter Vehicle No to unpark: "; cin >> no;
+            string no; cout << "Enter Vehicle No to unpark: ";
+            getline(cin >> ws, no);
             lot.unparkVehicle(no);
         } else if (choice == 3) {
             // Display Status
@@ -119,7 +121,8 @@ void userAccess(ParkingLot& lot) {
         if (choice == 1) {
             // Park Vehicle
             string no, type;
-            cout << "Enter Vehicle No: "; cin >> no;
+            cout << "Enter Vehicle No: ";
+            getline(cin >> ws, no);
             cout << "Enter Type (Car/Bike/Truck): "; cin >> type;
             transform(type.begin(), type.end(), type.begin(), ::tolower);
 
@@ -138,7 +141,8 @@ void userAccess(ParkingLot& lot) {
             }
         } else if (choice == 2) {
             // Unpark Vehicle
-            string no; cout << "Enter Vehicle No to unpark: "; cin >> no;
+            string no; cout << "Enter Vehicle No to unpark: ";
+            getline(cin >> ws, no);
             lot.unparkVehicle(no);
         } else if (choice == 3) {
             // Simple check availability for user (Simulated)

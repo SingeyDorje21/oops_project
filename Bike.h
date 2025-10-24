@@ -7,6 +7,7 @@ class Bike : public Vehicle {
 public:
     Bike(string no);
     double calculateFee(time_t exitTime) override;
+    string getType() const override;
 };
 
 #endif

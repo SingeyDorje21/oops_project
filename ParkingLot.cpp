@@ -11,6 +11,13 @@ bool ParkingLot::parkVehicle(Vehicle* v) {
     if ((int)tickets.size() >= capacity) {
         throw runtime_error("Parking Full!");
     }
+    for (auto &ticket : tickets) {
+        Vehicle* parkedVehicle = ticket.getVehicle();
+        if (parkedVehicle && parkedVehicle->getType() == v->getType() &&
+            parkedVehicle->getVehicleNo() == v->getVehicleNo()) {
+            throw runtime_error("Vehicle with same type and number already parked!");
+        }
+    }
     tickets.push_back(Ticket(v, tickets.size()+1));
     currentVehicles++;
     totalVehicles++;

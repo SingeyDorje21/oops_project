@@ -15,6 +15,7 @@ public:
     string getVehicleNo() const;
     time_t getEntryTime() const;
     virtual double calculateFee(time_t exitTime) = 0; // Abstract
+    virtual string getType() const = 0;
 };
 
 #endif

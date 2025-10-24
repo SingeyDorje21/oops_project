@@ -7,3 +7,7 @@ double Truck::calculateFee(time_t exitTime) {
     double hours = difftime(exitTime, entryTime) / 3600.0;
     return max(30.0, hours * 15);
 }
+
+string Truck::getType() const {
+    return "truck";
+}
